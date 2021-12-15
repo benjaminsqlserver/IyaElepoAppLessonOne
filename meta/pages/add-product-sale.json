@@ -1,0 +1,332 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Sales Date",
+                              "component": "SalesDate",
+                              "name": "SalesDateLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "SalesDate",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${productsale.SalesDate}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "SalesDateRequiredValidator",
+                              "component": "SalesDate",
+                              "text": "SalesDate is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Customer",
+                              "component": "CustomerID",
+                              "name": "CustomerIDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getCustomersResult}",
+                              "textProperty": "CustomerName",
+                              "valueProperty": "CustomerID",
+                              "placeholder": "Choose Customer",
+                              "valueType": "Int64",
+                              "type": "dropdown",
+                              "name": "CustomerID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${productsale.CustomerID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "CustomerIDRequiredValidator",
+                              "component": "CustomerID",
+                              "text": "CustomerID is required",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "defaultValue": "0"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Product",
+                              "component": "ProductID",
+                              "name": "ProductIDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getProductsResult}",
+                              "textProperty": "ProductName",
+                              "valueProperty": "ProductID",
+                              "placeholder": "Choose Product",
+                              "valueType": "Int64",
+                              "type": "dropdown",
+                              "name": "ProductID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${productsale.ProductID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "ProductIDRequiredValidator",
+                              "component": "ProductID",
+                              "text": "ProductID is required",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "defaultValue": "0"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Quantity In Litres",
+                              "component": "QuantityInLitres",
+                              "name": "QuantityInLitresLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal",
+                              "type": "numeric",
+                              "name": "QuantityInLitres",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${productsale.QuantityInLitres}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "QuantityInLitresRequiredValidator",
+                              "component": "QuantityInLitres",
+                              "text": "QuantityInLitres is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new ProductSale!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ConData.createProductSale",
+                        "parameters": [
+                          {
+                            "name": "ProductSale",
+                            "value": "${productsale}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${productsale}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "data": "${productsale}",
+                  "visible": "${productsale != null}",
+                  "itemType": "IyaElepoApp.Models.ConData.ProductSale"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "ConData.getCustomers",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getCustomersResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<IyaElepoApp.Models.ConData.Customer>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "ConData.getProducts",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getProductsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<IyaElepoApp.Models.ConData.Product>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "productsale",
+        "type": "set",
+        "value": "new IyaElepoApp.Models.ConData.ProductSale(){}",
+        "valueType": "IyaElepoApp.Models.ConData.ProductSale"
+      }
+    ]
+  },
+  "name": "Add Product Sale",
+  "layout": "Main"
+}

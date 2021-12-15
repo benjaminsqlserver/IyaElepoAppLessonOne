@@ -1,0 +1,332 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Supply Date",
+                              "component": "SupplyDate",
+                              "name": "SupplyDateLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "SupplyDate",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${productsupply.SupplyDate}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "SupplyDateRequiredValidator",
+                              "component": "SupplyDate",
+                              "text": "SupplyDate is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Product Supplier",
+                              "component": "ProductSupplierID",
+                              "name": "ProductSupplierIDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getProductSuppliersResult}",
+                              "textProperty": "ProductSupplierName",
+                              "valueProperty": "ProductSupplierID",
+                              "placeholder": "Choose ProductSupplier",
+                              "valueType": "Int64",
+                              "type": "dropdown",
+                              "name": "ProductSupplierID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${productsupply.ProductSupplierID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "ProductSupplierIDRequiredValidator",
+                              "component": "ProductSupplierID",
+                              "text": "ProductSupplierID is required",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "defaultValue": "0"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Product",
+                              "component": "ProductID",
+                              "name": "ProductIDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getProductsResult}",
+                              "textProperty": "ProductName",
+                              "valueProperty": "ProductID",
+                              "placeholder": "Choose Product",
+                              "valueType": "Int64",
+                              "type": "dropdown",
+                              "name": "ProductID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${productsupply.ProductID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "ProductIDRequiredValidator",
+                              "component": "ProductID",
+                              "text": "ProductID is required",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "defaultValue": "0"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Quantity In Litres",
+                              "component": "QuantityInLitres",
+                              "name": "QuantityInLitresLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal",
+                              "type": "numeric",
+                              "name": "QuantityInLitres",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${productsupply.QuantityInLitres}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "QuantityInLitresRequiredValidator",
+                              "component": "QuantityInLitres",
+                              "text": "QuantityInLitres is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new ProductSupply!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ConData.createProductSupply",
+                        "parameters": [
+                          {
+                            "name": "ProductSupply",
+                            "value": "${productsupply}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${productsupply}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "data": "${productsupply}",
+                  "visible": "${productsupply != null}",
+                  "itemType": "IyaElepoApp.Models.ConData.ProductSupply"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "ConData.getProductSuppliers",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getProductSuppliersResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<IyaElepoApp.Models.ConData.ProductSupplier>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "ConData.getProducts",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getProductsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<IyaElepoApp.Models.ConData.Product>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "productsupply",
+        "type": "set",
+        "value": "new IyaElepoApp.Models.ConData.ProductSupply(){}",
+        "valueType": "IyaElepoApp.Models.ConData.ProductSupply"
+      }
+    ]
+  },
+  "name": "Add Product Supply",
+  "layout": "Main"
+}

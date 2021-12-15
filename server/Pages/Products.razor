@@ -1,0 +1,50 @@
+﻿@page "/products"
+@layout MainLayout
+@inherits IyaElepoApp.Pages.ProductsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using IyaElepoApp.Models.ConData
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Products">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="Export" Click="@Splitbutton0Click">
+          <ChildContent>
+            <RadzenSplitButtonItem Text="Excel" Value="xlsx">
+            </RadzenSplitButtonItem>
+            <RadzenSplitButtonItem Text="CSV" Value="csv">
+            </RadzenSplitButtonItem>
+          </ChildContent>
+        </RadzenSplitButton>
+        <RadzenTextBox Placeholder="Search ..." style="display: block; margin-bottom: 10px; width: 100%" Name="Textbox0" @oninput="@(async(args) => {search = $"{args.Value}";await grid0.GoToPage(0);await Load();})">
+        </RadzenTextBox>
+        <RadzenDataGrid @ref="grid0" AllowFiltering="true" FilterMode="Radzen.FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getProductsResult" TItem="IyaElepoApp.Models.ConData.Product" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenDataGridColumn TItem="IyaElepoApp.Models.ConData.Product" Property="ProductID" Title="Product ID">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="IyaElepoApp.Models.ConData.Product" Property="ProductName" Title="Product Name">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="IyaElepoApp.Models.ConData.Product" Property="ProductTypeID" SortProperty="ProductType.ProductTypeName" GroupProperty="ProductType.ProductTypeName" FilterProperty="ProductType.ProductTypeName" Title="Product Type">
+              <Template Context="data">
+              @(data.ProductType?.ProductTypeName)
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="IyaElepoApp.Models.ConData.Product" Property="Picture" Title="Picture">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="IyaElepoApp.Models.ConData.Product" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="iyaElepoAppModelsConDataProduct">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, iyaElepoAppModelsConDataProduct))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenDataGridColumn>
+          </Columns>
+        </RadzenDataGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>
